@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Search, Wind, Droplets, ThermometerSun, Compass, ArrowRight } from "lucide-react";
+require('dotenv').config();
 
 function WeatherCard() {
   const [weather, setWeather] = useState({});
@@ -7,7 +8,7 @@ function WeatherCard() {
   const inpRef = useRef(null);
 
   const fetchWeather = async () => {
-    const API_KEY = "decc889dc16d764cdc4322fd7b5db42b";
+    const API_KEY = process.env.API_KEY;
     const CITY = inpRef.current.value;
     
     if (!CITY.trim()) {
